@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="customer1" class="com.qa.spring.beans.Customer" lazy-init="true" init-method="initCustomer" destroy-method="delCustomer">
+    	<property name="id" value="111"></property>
+    	<property name="name" value="customer1"></property>
+    	<property name="email" value="c1@gmail.com"></property>
+    	<property name="contactNo" value="11111 111111"></property>
+    	<property name="ordersList" >
+    		<list>
+    			<ref bean="order1" />
+    		</list>
+    	</property>
+    </bean>
+    <bean id="customer2" class="com.qa.spring.beans.Customer" lazy-init="true" init-method="initCustomer" destroy-method="delCustomer">
+    	<property name="id" value="222"></property>
+    	<property name="name" value="customer2"></property>
+    	<property name="email" value="c2@gmail.com"></property>
+    	<property name="contactNo" value="22222 222222"></property>
+    	<property name="ordersList" >
+    		<list>
+    			<ref bean="order2" />
+    		</list>
+    	</property>
+    </bean>
+  
+    <bean id="order1" class="com.qa.spring.beans.Order" lazy-init="true" scope="prototype" init-method="initOrder">
+		<property name="id" value="1111"></property>
+		<property name="customerId" value="111"></property>
+		<property name="orderValue" value="1234.56"></property>
+		<property name="orderDate" value=""></property>
+    </bean>
+     <bean id="order2" class="com.qa.spring.beans.Order" lazy-init="true" scope="prototype" init-method="initOrder">
+		<property name="id" value="2222"></property>
+		<property name="customerId" value="222"></property>
+		<property name="orderValue" value="456.78"></property>
+		<property name="orderDate" value=""></property>
+    </bean>
+</beans>
+
+
