@@ -39,6 +39,7 @@ public class App
     	Customer customer1 = context.getBean("customer1", Customer.class);
     	System.out.println(customer1);
     	
+    	context.close();
     	
     	 
     }
